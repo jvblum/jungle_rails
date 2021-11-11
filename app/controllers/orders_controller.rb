@@ -2,6 +2,15 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @ordered_products = []
+
+    @order.line_items.each do |item|
+      @product = Product.find(item.product_id)
+      # overwriting Product attributes to inherit data from order
+      @product.quantity = item.quantity
+      @product.price_cents = item.total_price_cents
+      @ordered_products << @product
+    end
   end
 
   def create
