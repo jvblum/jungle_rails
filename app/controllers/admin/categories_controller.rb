@@ -5,6 +5,11 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.order(id: :desc).all
+    @categories_with_count = []
+    @categories.each do |category|
+      item = { name: category.name,count: Product.where("category_id = #{category.id}").count}
+      @categories_with_count << item
+    end
   end
 
   def new
@@ -24,7 +29,7 @@ class Admin::CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:product).permit(
+    params.require(:category).permit(
       :name,
     )
   end
