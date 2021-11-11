@@ -1,0 +1,13 @@
+.badge {
+  position: absolute;
+  left: -16px;
+  top: 8px;
+  width: 10rem;
+  height: 2rem;
+  background-color: #ff3e3e;
+
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  font-size: 100%;
+}
