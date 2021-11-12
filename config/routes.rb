@@ -19,12 +19,12 @@ Rails.application.routes.draw do
     resources :categories, except: [:edit, :update, :show, :destroy]
   end
 
-  # add users routes
-  resources :users, only: [:create]
+  # users routes
+  post 'register' => 'users#create'
   get 'register' => 'users#new'
 
-  # add sessions routes
-  resources :sessions, only: [:create]
+  # sessions routes
+  post 'login' => 'sessions#create'
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 
