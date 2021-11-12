@@ -1,14 +1,22 @@
 class OrdersController < ApplicationController
 
   def show
+
+    # template variables
+    @line_items = LineItem.where(order_id: params[:id])
     @order = Order.find(params[:id])
     @ordered_products = []
 
-    @order.line_items.each do |item|
-      @product = Product.find(item.product_id)
-      # overwriting Product attributes to inherit data from order
-      @product.quantity = item.quantity
-      @product.price_cents = item.total_price_cents
+    @line_items.each do |item|
+      @product_import = Product.find(item.product_id)
+      @product = {
+        name: @product_import[:name],
+        image: @product_import.image, # in this format to access methods
+        description: @product_import[:description],
+        quantity: item.quantity,
+        item_price_cents: item.item_price_cents,
+        total_price_cents: item.total_price_cents
+      }
       @ordered_products << @product
     end
   end

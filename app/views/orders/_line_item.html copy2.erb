@@ -1,0 +1,15 @@
+<% @line_items.each do |item| %>
+<tr>
+  <td>
+ 
+    <br>
+    <p><%= item.item_price_cents %></p>
+  </td>
+  <td>
+    <%= item.quantity %>
+  </td>
+  <td>
+    <%= humanized_money_with_symbol item.total_price_cents / 100.0.to_f %>
+  </td>
+</tr>
+<% end %>
