@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    redirect_to :root if current_user
     @user = User.new
   end
 
@@ -9,8 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      redirect_to users_new
-      # redirect_to '/signup'
+      redirect_to new_user
     end
   end
 

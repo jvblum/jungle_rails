@@ -1,4 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top">
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -30,6 +31,24 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>
+            <%= link_to 'logout' do %>
+              <span class="text-info">Log out</span>
+            <% end %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to new_user_path do %>
+              <span class="text-info">Register</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to new_session_path do %>
+              <span class="text-info">Log in</span>
+            <% end %>
+        </li>
+        <% end %>
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
