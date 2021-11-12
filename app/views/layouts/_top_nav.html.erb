@@ -33,18 +33,18 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
         <li>
-            <%= link_to 'logout' do %>
+            <%= link_to '/logout' do %>
               <span class="text-info">Log out</span>
             <% end %>
         </li>
         <% else %>
         <li>
-            <%= link_to 'register' do %>
+            <%= link_to '/register' do %>
               <span class="text-info">Register</span>
             <% end %>
         </li>
         <li>
-            <%= link_to 'login' do %>
+            <%= link_to '/login' do %>
               <span class="text-info">Log in</span>
             <% end %>
         </li>
