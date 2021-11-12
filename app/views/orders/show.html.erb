@@ -14,7 +14,9 @@
         </tr>
       </thead>
       <tbody>
-        <%= render 'line_item', items: @ordered_products %>
+        <% @ordered_products.each do |item| %>
+          <%= render 'line_item', item: item %>
+        <% end %>
       </tbody>
       <tfoot>
         <tr>
