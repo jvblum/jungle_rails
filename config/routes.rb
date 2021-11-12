@@ -20,8 +20,12 @@ Rails.application.routes.draw do
   end
 
   # add users routes
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create]
+  resources :users, only: [:create]
+  get 'register' => 'users#new'
+
+  # add sessions routes
+  resources :sessions, only: [:create]
+  get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.

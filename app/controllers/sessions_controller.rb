@@ -10,13 +10,13 @@ class SessionsController < ApplicationController
       redirect_to :root
     else
       # if doesn't work, redirect to login page
-      redirect_to new_session_path
+      redirect_to '/login'
     end
   end
 
   def destroy
     # clear cookie
     session[:user_id] = nil
-    redirect_to new_session_path
+    redirect_to '/login'
   end
 end
