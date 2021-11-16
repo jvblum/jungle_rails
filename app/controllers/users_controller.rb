@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      redirect_to 'register'
+      redirect_to '/register'
     end
   end
 
