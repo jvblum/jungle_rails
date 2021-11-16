@@ -27,3 +27,13 @@
   <% end %>
   </div>
 </div>
+<br>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+          <% @user.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger" style="margin: 1%">
+              <%= msg %>
+            </div>
+          <% end %>
+      </div>
+    <% end %>

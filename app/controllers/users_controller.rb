@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      redirect_to '/register'
+      render 'new' # re-render register page to display error message
+      # redirect_to '/register'
     end
   end
 
